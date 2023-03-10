@@ -58,6 +58,5 @@ public class Main {
         System.out.println("The square root of " + x + " is " + squareRoot(x));
 
         System.out.println("A random integer value between 0 and 100 is " +randomInt());
-
     }
 }
