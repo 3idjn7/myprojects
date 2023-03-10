@@ -5,7 +5,6 @@ public class Main {
         System.out.println("Original Text: " + text);
         System.out.println("Replaced Text: " + replacedText);
     }
-
     public static String replaceA(String text) {
         return text.replaceAll("a", "aa");
     }
