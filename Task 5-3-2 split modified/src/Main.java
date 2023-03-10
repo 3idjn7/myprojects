@@ -1,13 +1,10 @@
-import java.util.Arrays;
+/*
+Create a simple java program with main method that prints in the system console the numbers from 0-99 in the following format: 0, 1, 2, 3 …
+        Implement the program by using three different loops and for each kind of loop create new a method:
+        use a 'for' loop
+        use a 'while' loop
+        use a do-while loop
 
-public class Main {
+ */
 
-    public static String[] splitIntoWords (String text) {
-        return text.split("\\s");
-    }
-    public static void main(String[] args) {
-        String text = "Never gonna give you up, never gonna let you down, never gonna run around and desert you";
-        String[] words = splitIntoWords(text);
-        System.out.println(Arrays.toString(words));
-    }
-}
+
