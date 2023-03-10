@@ -43,7 +43,6 @@ public class Main {
         double x = 51.7;
         double radius = 7.7;
 
-
         System.out.println("Absolute value of " + number + " is " + absoluteValue(number));
 
         System.out.println(number + " rounds off to " + roundOff(number));
