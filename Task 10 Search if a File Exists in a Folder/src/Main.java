@@ -1,6 +1,5 @@
 import java.io.File;
 import java.nio.file.*;
-import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.io.IOException;
 import java.util.Iterator;
@@ -24,7 +23,7 @@ public class Main {
         searchUsingFilesWalk(directory, fileName, maxDepth, result2);
         printResults(result2);
 
-        System.out.println("\nUsing Files.walk startic method without lambdas:");
+        System.out.println("\nUsing Files.walk static method without lambdas:");
         List<String> result3 = new ArrayList<>();
         searchUsingFilesWalkALT(directory, fileName, maxDepth, result3);
         printResults(result3);
@@ -72,7 +71,7 @@ public class Main {
         private static void printResults(List<String> result) {
 
             if (result.isEmpty()) {
-                System.out.println("No mathces found.");
+                System.out.println("No matches found.");
             } else {
                 System.out.println("Found " + result.size() + " matches:");
                 for (String path : result) {
