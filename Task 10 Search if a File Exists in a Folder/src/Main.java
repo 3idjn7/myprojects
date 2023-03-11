@@ -1,10 +1,11 @@
 import java.io.File;
+import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -22,6 +23,11 @@ public class Main {
         List<String> result2 = new ArrayList<>();
         searchUsingFilesWalk(directory, fileName, maxDepth, result2);
         printResults(result2);
+
+        System.out.println("\nUsing Files.walk startic method without lambdas:");
+        List<String> result3 = new ArrayList<>();
+        searchUsingFilesWalkALT(directory, fileName, maxDepth, result3);
+        printResults(result3);
 
         }
         private static void searchRecursively(File directory, String filename, int maxDepth, List<String> result) {
@@ -47,6 +53,20 @@ public class Main {
             Files.walk(start, maxDepth)
                     .filter(path -> path.toFile().getName().equals(filename)) //LAMBDAS BABYYYY
                     .forEach(path -> result.add(path.toAbsolutePath().toString()));
+        }
+
+        private static void searchUsingFilesWalkALT(String directory, String filename, int maxDepth, List<String> result) throws IOException {
+            Path start = Paths.get(directory);
+
+            try (Stream<Path> stream = Files.walk(start, maxDepth)) {
+                Iterator<Path> iterator = stream.iterator();
+                while (iterator.hasNext()) {
+                    Path path = iterator.next();
+                    if (path.toFile().getName().equals(filename)) {
+                        result.add(path.toAbsolutePath().toString());
+                    }
+                }
+            }
         }
 
         private static void printResults(List<String> result) {
